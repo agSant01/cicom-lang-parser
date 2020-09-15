@@ -1,0 +1,1 @@
+let f := map n to if n == 0 then 12 else n * f(n - 1); 

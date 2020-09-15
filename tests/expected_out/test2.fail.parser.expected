@@ -1,0 +1,614 @@
+Generating LALR tables
+PLY: PARSE DEBUG START
+
+State  : 0
+Stack  : . LexToken(LET,'let',1,0)
+Action : Shift and goto state 4
+
+State  : 4
+Stack  : LET . LexToken(CHARACTER,'f',1,8)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET CHARACTER . LexToken(EQ,':=',1,10)
+Action : Reduce rule [id -> CHARACTER] with ['f'] and goto state 38
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 38
+Stack  : LET id . LexToken(EQ,':=',1,10)
+Action : Shift and goto state 51
+
+State  : 51
+Stack  : LET id EQ . LexToken(MAP,'map',1,13)
+Action : Shift and goto state 5
+
+State  : 5
+Stack  : LET id EQ MAP . LexToken(CHARACTER,'n',1,17)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP CHARACTER . LexToken(COMMA,',',1,18)
+Action : Reduce rule [id -> CHARACTER] with ['n'] and goto state 41
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 41
+Stack  : LET id EQ MAP id . LexToken(COMMA,',',1,18)
+Action : Shift and goto state 53
+
+State  : 53
+Stack  : LET id EQ MAP id COMMA . LexToken(CHARACTER,'m',1,19)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP id COMMA CHARACTER . LexToken(COMMA,',',1,20)
+Action : Reduce rule [id -> CHARACTER] with ['m'] and goto state 41
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 41
+Stack  : LET id EQ MAP id COMMA id . LexToken(COMMA,',',1,20)
+Action : Shift and goto state 53
+
+State  : 53
+Stack  : LET id EQ MAP id COMMA id COMMA . LexToken(CHARACTER,'k',1,21)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP id COMMA id COMMA CHARACTER . LexToken(TO,'to',1,23)
+Action : Reduce rule [id -> CHARACTER] with ['k'] and goto state 41
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 41
+Stack  : LET id EQ MAP id COMMA id COMMA id . LexToken(TO,'to',1,23)
+Action : Reduce rule [propidlist -> id] with [None] and goto state 62
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 62
+Defaulted state 62: Reduce using 23
+Stack  : LET id EQ MAP id COMMA id COMMA propidlist . LexToken(TO,'to',1,23)
+Action : Reduce rule [propidlist -> id COMMA propidlist] with [None,',',None] and goto state 62
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 62
+Defaulted state 62: Reduce using 23
+Stack  : LET id EQ MAP id COMMA propidlist . LexToken(TO,'to',1,23)
+Action : Reduce rule [propidlist -> id COMMA propidlist] with [None,',',None] and goto state 40
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 40
+Defaulted state 40: Reduce using 21
+Stack  : LET id EQ MAP propidlist . LexToken(TO,'to',1,23)
+Action : Reduce rule [idlist -> propidlist] with [None] and goto state 39
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 39
+Stack  : LET id EQ MAP idlist . LexToken(TO,'to',1,23)
+Action : Shift and goto state 52
+
+State  : 52
+Stack  : LET id EQ MAP idlist TO . LexToken(IF,'if',1,26)
+Action : Shift and goto state 3
+
+State  : 3
+Stack  : LET id EQ MAP idlist TO IF . LexToken(OPEN_PAREN,'(',1,29)
+Action : Shift and goto state 8
+
+State  : 8
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN . LexToken(CHARACTER,'n',1,30)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN CHARACTER . LexToken(OPERATOR,'<=',1,32)
+Action : Reduce rule [id -> CHARACTER] with ['n'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN id . LexToken(OPERATOR,'<=',1,32)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN factor . LexToken(OPERATOR,'<=',1,32)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term . LexToken(OPERATOR,'<=',1,32)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term OPERATOR . LexToken(DIGIT,'0',1,35)
+Action : Reduce rule [binop -> OPERATOR] with ['<='] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop . LexToken(DIGIT,'0',1,35)
+Action : Shift and goto state 18
+
+State  : 18
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop DIGIT . LexToken(OPERATOR,'&',1,37)
+Action : Reduce rule [int -> DIGIT] with ['0'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop int . LexToken(OPERATOR,'&',1,37)
+Action : Reduce rule [term -> int] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term . LexToken(OPERATOR,'&',1,37)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term OPERATOR . LexToken(CHARACTER,'n',1,39)
+Action : Reduce rule [binop -> OPERATOR] with ['&'] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop . LexToken(CHARACTER,'n',1,39)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop CHARACTER . LexToken(OPERATOR,'>=',1,41)
+Action : Reduce rule [id -> CHARACTER] with ['n'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop id . LexToken(OPERATOR,'>=',1,41)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop factor . LexToken(OPERATOR,'>=',1,41)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop term . LexToken(OPERATOR,'>=',1,41)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop term OPERATOR . LexToken(DIGIT,'0',1,44)
+Action : Reduce rule [binop -> OPERATOR] with ['>='] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop term binop . LexToken(DIGIT,'0',1,44)
+Action : Shift and goto state 18
+
+State  : 18
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop term binop DIGIT . LexToken(CLOSE_PAREN,')',1,45)
+Action : Reduce rule [int -> DIGIT] with ['0'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop term binop int . LexToken(CLOSE_PAREN,')',1,45)
+Action : Reduce rule [term -> int] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop term binop term . LexToken(CLOSE_PAREN,')',1,45)
+Action : Reduce rule [exp -> term] with [None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop term binop exp . LexToken(CLOSE_PAREN,')',1,45)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop term binop exp . LexToken(CLOSE_PAREN,')',1,45)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN term binop exp . LexToken(CLOSE_PAREN,')',1,45)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 44
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 44
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN exp . LexToken(CLOSE_PAREN,')',1,45)
+Action : Shift and goto state 57
+
+State  : 57
+Stack  : LET id EQ MAP idlist TO IF OPEN_PAREN exp CLOSE_PAREN . LexToken(OPERATOR,'|',1,65)
+Action : Reduce rule [factor -> OPEN_PAREN exp CLOSE_PAREN] with ['(',None,')'] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF factor . LexToken(OPERATOR,'|',1,65)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term . LexToken(OPERATOR,'|',1,65)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF term OPERATOR . LexToken(OPEN_PAREN,'(',1,67)
+Action : Reduce rule [binop -> OPERATOR] with ['|'] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF term binop . LexToken(OPEN_PAREN,'(',1,67)
+Action : Shift and goto state 8
+
+State  : 8
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN . LexToken(CHARACTER,'n',1,68)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN CHARACTER . LexToken(OPERATOR,'<',1,70)
+Action : Reduce rule [id -> CHARACTER] with ['n'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN id . LexToken(OPERATOR,'<',1,70)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN factor . LexToken(OPERATOR,'<',1,70)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term . LexToken(OPERATOR,'<',1,70)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term OPERATOR . LexToken(DIGIT,'0',1,72)
+Action : Reduce rule [binop -> OPERATOR] with ['<'] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop . LexToken(DIGIT,'0',1,72)
+Action : Shift and goto state 18
+
+State  : 18
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop DIGIT . LexToken(OPERATOR,'&',1,74)
+Action : Reduce rule [int -> DIGIT] with ['0'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop int . LexToken(OPERATOR,'&',1,74)
+Action : Reduce rule [term -> int] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term . LexToken(OPERATOR,'&',1,74)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term OPERATOR . LexToken(CHARACTER,'n',1,76)
+Action : Reduce rule [binop -> OPERATOR] with ['&'] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop . LexToken(CHARACTER,'n',1,76)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop CHARACTER . LexToken(OPERATOR,'>',1,78)
+Action : Reduce rule [id -> CHARACTER] with ['n'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop id . LexToken(OPERATOR,'>',1,78)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop factor . LexToken(OPERATOR,'>',1,78)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term . LexToken(OPERATOR,'>',1,78)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term OPERATOR . LexToken(DIGIT,'0',1,80)
+Action : Reduce rule [binop -> OPERATOR] with ['>'] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop . LexToken(DIGIT,'0',1,80)
+Action : Shift and goto state 18
+
+State  : 18
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop DIGIT . LexToken(OPERATOR,'&',1,82)
+Action : Reduce rule [int -> DIGIT] with ['0'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop int . LexToken(OPERATOR,'&',1,82)
+Action : Reduce rule [term -> int] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term . LexToken(OPERATOR,'&',1,82)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term OPERATOR . LexToken(CHARACTER,'n',1,84)
+Action : Reduce rule [binop -> OPERATOR] with ['&'] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop . LexToken(CHARACTER,'n',1,84)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop CHARACTER . LexToken(OPERATOR,'!=',1,86)
+Action : Reduce rule [id -> CHARACTER] with ['n'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop id . LexToken(OPERATOR,'!=',1,86)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop factor . LexToken(OPERATOR,'!=',1,86)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop term . LexToken(OPERATOR,'!=',1,86)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop term OPERATOR . LexToken(DIGIT,'0',1,89)
+Action : Reduce rule [binop -> OPERATOR] with ['!='] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop term binop . LexToken(DIGIT,'0',1,89)
+Action : Shift and goto state 18
+
+State  : 18
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop term binop DIGIT . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [int -> DIGIT] with ['0'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop term binop int . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [term -> int] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop term binop term . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [exp -> term] with [None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop term binop exp . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop term binop exp . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop term binop exp . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop term binop exp . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN term binop exp . LexToken(CLOSE_PAREN,')',1,90)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 44
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 44
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN exp . LexToken(CLOSE_PAREN,')',1,90)
+Action : Shift and goto state 57
+
+State  : 57
+Stack  : LET id EQ MAP idlist TO IF term binop OPEN_PAREN exp CLOSE_PAREN . LexToken(THEN,'then',1,92)
+Action : Reduce rule [factor -> OPEN_PAREN exp CLOSE_PAREN] with ['(',None,')'] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF term binop factor . LexToken(THEN,'then',1,92)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF term binop term . LexToken(THEN,'then',1,92)
+Action : Reduce rule [exp -> term] with [None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF term binop exp . LexToken(THEN,'then',1,92)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 36
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 36
+Stack  : LET id EQ MAP idlist TO IF exp . LexToken(THEN,'then',1,92)
+Action : Shift and goto state 49
+
+State  : 49
+Stack  : LET id EQ MAP idlist TO IF exp THEN . LexToken(NUMBER_Q,'number?',1,97)
+Action : Shift and goto state 22
+
+State  : 22
+Stack  : LET id EQ MAP idlist TO IF exp THEN NUMBER_Q . LexToken(ELSE,'else',1,148)
+Action : Reduce rule [prim -> NUMBER_Q] with ['number?'] and goto state 14
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 14
+Stack  : LET id EQ MAP idlist TO IF exp THEN prim . LexToken(ELSE,'else',1,148)
+Action : Reduce rule [factor -> prim] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF exp THEN factor . LexToken(ELSE,'else',1,148)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF exp THEN term . LexToken(ELSE,'else',1,148)
+Action : Reduce rule [exp -> term] with [None] and goto state 58
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 58
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp . LexToken(ELSE,'else',1,148)
+Action : Shift and goto state 65
+
+State  : 65
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE . LexToken(CHARACTER,'m',1,153)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE CHARACTER . LexToken(OPERATOR,'/',1,155)
+Action : Reduce rule [id -> CHARACTER] with ['m'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE id . LexToken(OPERATOR,'/',1,155)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE factor . LexToken(OPERATOR,'/',1,155)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term . LexToken(OPERATOR,'/',1,155)
+Action : Shift and goto state 35
+
+State  : 35
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term OPERATOR . LexToken(CHARACTER,'f',1,157)
+Action : Reduce rule [binop -> OPERATOR] with ['/'] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop . LexToken(CHARACTER,'f',1,157)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop CHARACTER . LexToken(OPEN_PAREN,'(',1,158)
+Action : Reduce rule [id -> CHARACTER] with ['f'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop id . LexToken(OPEN_PAREN,'(',1,158)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor . LexToken(OPEN_PAREN,'(',1,158)
+Action : Shift and goto state 43
+
+State  : 43
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN . LexToken(CHARACTER,'k',1,159)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN CHARACTER . LexToken(PLUS,'+',1,161)
+Action : Reduce rule [id -> CHARACTER] with ['k'] and goto state 15
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 15
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN id . LexToken(PLUS,'+',1,161)
+Action : Reduce rule [factor -> id] with [None] and goto state 7
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 7
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN factor . LexToken(PLUS,'+',1,161)
+Action : Reduce rule [term -> factor] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term . LexToken(PLUS,'+',1,161)
+Action : Shift and goto state 20
+
+State  : 20
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term PLUS . LexToken(DIGIT,'1',1,163)
+Action : Reduce rule [sign -> PLUS] with ['+'] and goto state 34
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 34
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term sign . LexToken(DIGIT,'1',1,163)
+Action : Reduce rule [binop -> sign] with [None] and goto state 33
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 33
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term binop . LexToken(DIGIT,'1',1,163)
+Action : Shift and goto state 18
+
+State  : 18
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term binop DIGIT . LexToken(CLOSE_PAREN,')',1,164)
+Action : Reduce rule [int -> DIGIT] with ['1'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term binop int . LexToken(CLOSE_PAREN,')',1,164)
+Action : Reduce rule [term -> int] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term binop term . LexToken(CLOSE_PAREN,')',1,164)
+Action : Reduce rule [exp -> term] with [None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN term binop exp . LexToken(CLOSE_PAREN,')',1,164)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 56
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 56
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN exp . LexToken(CLOSE_PAREN,')',1,164)
+Action : Reduce rule [propexplist -> exp] with [None] and goto state 55
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 55
+Defaulted state 55: Reduce using 17
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN propexplist . LexToken(CLOSE_PAREN,')',1,164)
+Action : Reduce rule [explist -> propexplist] with [None] and goto state 54
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 54
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN explist . LexToken(CLOSE_PAREN,')',1,164)
+Action : Shift and goto state 63
+
+State  : 63
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop factor OPEN_PAREN explist CLOSE_PAREN . LexToken(SEMI_COLON,';',1,165)
+Action : Reduce rule [term -> factor OPEN_PAREN explist CLOSE_PAREN] with [None,'(',None,')'] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop term . LexToken(SEMI_COLON,';',1,165)
+Action : Reduce rule [exp -> term] with [None] and goto state 48
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 48
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE term binop exp . LexToken(SEMI_COLON,';',1,165)
+Action : Reduce rule [exp -> term binop exp] with [None,None,None] and goto state 68
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 68
+Stack  : LET id EQ MAP idlist TO IF exp THEN exp ELSE exp . LexToken(SEMI_COLON,';',1,165)
+Action : Reduce rule [exp -> IF exp THEN exp ELSE exp] with ['if',None,'then',None,'else',None] and goto state 61
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 61
+Stack  : LET id EQ MAP idlist TO exp . LexToken(SEMI_COLON,';',1,165)
+Action : Reduce rule [exp -> MAP idlist TO exp] with ['map',None,'to',None] and goto state 60
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 60
+Stack  : LET id EQ exp . LexToken(SEMI_COLON,';',1,165)
+Action : Shift and goto state 66
+
+State  : 66
+Stack  : LET id EQ exp SEMI_COLON . $end
+ERROR: Error  : LET id EQ exp SEMI_COLON . $end

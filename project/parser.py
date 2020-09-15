@@ -151,7 +151,7 @@ def p_error(p):
             'EOF ERROR. Syntax is not complete.')
 
 
-parser = yacc.yacc(write_tables=True, outputdir='./out')
+parser = yacc.yacc(write_tables=False, outputdir='./out', debug=True)
 
 if __name__ == "__main__":
     arg_parser = argparse.ArgumentParser()

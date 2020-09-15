@@ -185,8 +185,9 @@ def t_error(t):
         pass
 
 
+import logging
 # bulid lexer
-lexer = lex.lex()
+lexer = lex.lex(debug=True, debuglog=logging.getLogger(), outputdir='./out')
 
 if __name__ == "__main__":
     lexer = lex.lex()

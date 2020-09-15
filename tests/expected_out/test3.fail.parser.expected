@@ -1,0 +1,136 @@
+Generating LALR tables
+PLY: PARSE DEBUG START
+
+State  : 0
+Stack  : . LexToken(LET,'let',1,0)
+Action : Shift and goto state 4
+
+State  : 4
+Stack  : LET . LexToken(CHARACTER,'j',1,4)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET CHARACTER . LexToken(CHARACTER,'j',1,5)
+Action : Reduce rule [id -> CHARACTER] with ['j'] and goto state 38
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 38
+Stack  : LET id . LexToken(CHARACTER,'j',1,5)
+Action : Shift and goto state 47
+
+State  : 47
+Stack  : LET id CHARACTER . LexToken(EQ,':=',1,7)
+Action : Reduce rule [id -> id CHARACTER] with [None,'j'] and goto state 38
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 38
+Stack  : LET id . LexToken(EQ,':=',1,7)
+Action : Shift and goto state 51
+
+State  : 51
+Stack  : LET id EQ . LexToken(TRUE,'true',1,10)
+Action : Shift and goto state 17
+
+State  : 17
+Stack  : LET id EQ TRUE . LexToken(SEMI_COLON,';',1,14)
+Action : Reduce rule [bool -> TRUE] with ['true'] and goto state 9
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 9
+Stack  : LET id EQ bool . LexToken(SEMI_COLON,';',1,14)
+Action : Reduce rule [term -> bool] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ term . LexToken(SEMI_COLON,';',1,14)
+Action : Reduce rule [exp -> term] with [None] and goto state 60
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 60
+Stack  : LET id EQ exp . LexToken(SEMI_COLON,';',1,14)
+Action : Shift and goto state 66
+
+State  : 66
+Stack  : LET id EQ exp SEMI_COLON . LexToken(CHARACTER,'v',1,16)
+Action : Shift and goto state 32
+
+State  : 32
+Stack  : LET id EQ exp SEMI_COLON CHARACTER . LexToken(CHARACTER,'a',1,17)
+Action : Reduce rule [id -> CHARACTER] with ['v'] and goto state 38
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 38
+Stack  : LET id EQ exp SEMI_COLON id . LexToken(CHARACTER,'a',1,17)
+Action : Shift and goto state 47
+
+State  : 47
+Stack  : LET id EQ exp SEMI_COLON id CHARACTER . LexToken(CHARACTER,'r',1,18)
+Action : Reduce rule [id -> id CHARACTER] with [None,'a'] and goto state 38
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 38
+Stack  : LET id EQ exp SEMI_COLON id . LexToken(CHARACTER,'r',1,18)
+Action : Shift and goto state 47
+
+State  : 47
+Stack  : LET id EQ exp SEMI_COLON id CHARACTER . LexToken(DIGIT,'1',1,19)
+Action : Reduce rule [id -> id CHARACTER] with [None,'r'] and goto state 38
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 38
+Stack  : LET id EQ exp SEMI_COLON id . LexToken(DIGIT,'1',1,19)
+Action : Shift and goto state 46
+
+State  : 46
+Stack  : LET id EQ exp SEMI_COLON id DIGIT . LexToken(EQ,':=',1,21)
+Action : Reduce rule [id -> id DIGIT] with [None,'1'] and goto state 38
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 38
+Stack  : LET id EQ exp SEMI_COLON id . LexToken(EQ,':=',1,21)
+Action : Shift and goto state 51
+
+State  : 51
+Stack  : LET id EQ exp SEMI_COLON id EQ . LexToken(DIGIT,'2',1,24)
+Action : Shift and goto state 18
+
+State  : 18
+Stack  : LET id EQ exp SEMI_COLON id EQ DIGIT . LexToken(DIGIT,'3',1,25)
+Action : Reduce rule [int -> DIGIT] with ['2'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ exp SEMI_COLON id EQ int . LexToken(DIGIT,'3',1,25)
+Action : Shift and goto state 45
+
+State  : 45
+Stack  : LET id EQ exp SEMI_COLON id EQ int DIGIT . LexToken(DIGIT,'4',1,26)
+Action : Reduce rule [int -> int DIGIT] with [None,'3'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ exp SEMI_COLON id EQ int . LexToken(DIGIT,'4',1,26)
+Action : Shift and goto state 45
+
+State  : 45
+Stack  : LET id EQ exp SEMI_COLON id EQ int DIGIT . LexToken(SEMI_COLON,';',1,27)
+Action : Reduce rule [int -> int DIGIT] with [None,'4'] and goto state 10
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 10
+Stack  : LET id EQ exp SEMI_COLON id EQ int . LexToken(SEMI_COLON,';',1,27)
+Action : Reduce rule [term -> int] with [None] and goto state 2
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 2
+Stack  : LET id EQ exp SEMI_COLON id EQ term . LexToken(SEMI_COLON,';',1,27)
+Action : Reduce rule [exp -> term] with [None] and goto state 60
+Result : <NoneType @ 0x9d4380> (None)
+
+State  : 60
+Stack  : LET id EQ exp SEMI_COLON id EQ exp . LexToken(SEMI_COLON,';',1,27)
+Action : Shift and goto state 66
+
+State  : 66
+Stack  : LET id EQ exp SEMI_COLON id EQ exp SEMI_COLON . $end
+ERROR: Error  : LET id EQ exp SEMI_COLON id EQ exp SEMI_COLON . $end

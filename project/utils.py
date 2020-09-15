@@ -8,7 +8,6 @@ class ColorConsole(object):
     CYAN = '\033[36m'
     WHITE = '\033[37m'
     UNDERLINE = '\033[4m'
-    RESET = '\033[0m'
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
